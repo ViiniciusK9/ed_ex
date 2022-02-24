@@ -45,6 +45,9 @@ int main(){
     No *Lista = NULL;
 
     Lista = inserir_no_inicio(Lista, 5);
+    Lista = inserir_no_inicio(Lista, 10);
+    Lista = inserir_no_inicio(Lista, 15);
+    Lista = inserir_no_inicio(Lista, 20);
     imprimir_lista(Lista);
 
     return 0;
