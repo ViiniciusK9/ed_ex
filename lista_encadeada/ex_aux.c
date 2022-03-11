@@ -15,7 +15,7 @@ No* criar_no(){
 }
 
 
-No* inserir_no_inicio(No* Lista, int dado){
+No* inserir_elemento_inicio(No* Lista, int dado){
     No *novo_no = criar_no();
     novo_no->num = dado;
 
@@ -25,6 +25,27 @@ No* inserir_no_inicio(No* Lista, int dado){
     }else{
         novo_no->prox = Lista;
         Lista = novo_no;
+    }
+    return Lista;
+}
+
+
+No* inserir_elemento_fim(No* Lista, int dado){
+    No *novo_no = criar_no();
+    novo_no->num = dado;
+
+    if(Lista == NULL){
+        Lista = novo_no;
+        novo_no->prox = NULL;
+    }else{
+        No *aux = Lista;
+        
+        while(aux->prox != NULL){
+            aux = aux->prox;
+        }
+
+        novo_no->prox = NULL;
+        aux->prox = novo_no;
     }
     return Lista;
 }
@@ -44,10 +65,10 @@ int main(){
 
     No *Lista = NULL;
 
-    Lista = inserir_no_inicio(Lista, 5);
-    Lista = inserir_no_inicio(Lista, 10);
-    Lista = inserir_no_inicio(Lista, 15);
-    Lista = inserir_no_inicio(Lista, 20);
+    Lista = inserir_elemento_inicio(Lista, 5);
+    Lista = inserir_elemento_inicio(Lista, 10);
+    Lista = inserir_elemento_inicio(Lista, 15);
+    Lista = inserir_elemento_inicio(Lista, 20);
     imprimir_lista(Lista);
 
     return 0;
