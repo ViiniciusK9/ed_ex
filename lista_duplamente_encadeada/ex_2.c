@@ -70,6 +70,29 @@ void adicionar_funcionario_inicio(List *list){
 }
 
 
+void deletar_funcionario(List *list, int id_deletar){
+    Funcionario *aux;
+    for(aux = list->primeiro; aux != NULL; aux = aux->proximo){
+        if(aux->id == id_deletar){ deletar_funcionario(list, 4);
+            if (aux == list->primeiro && aux == list->ultimo){
+                list->primeiro == NULL;
+                list->ultimo == NULL;
+            }else if(aux == list->primeiro){
+                aux->proximo->anterior = NULL;
+                list->primeiro = aux->proximo;
+            }else if (aux == list->ultimo){
+                aux->anterior->proximo = NULL;
+                list->ultimo = aux->anterior;
+            }else {
+                aux->anterior->proximo = aux->proximo;
+                aux->proximo->anterior = aux->anterior;
+            }
+            free(aux);
+        }
+    }
+}
+
+
 void listar_funcionarios(List *list){
     Funcionario *aux;
     for(aux = list->primeiro; aux != NULL; aux = aux->proximo){
@@ -87,16 +110,25 @@ int main(){
     list->primeiro = NULL;
     list->ultimo = NULL;
 
-    adicionar_funcionario_inicio(list);
-    adicionar_funcionario_inicio(list);
-    adicionar_funcionario_inicio(list);
-    adicionar_funcionario_inicio(list);
-    adicionar_funcionario_inicio(list);
+    adicionar_funcionario_final(list);
+    adicionar_funcionario_final(list);
+    adicionar_funcionario_final(list);
+    adicionar_funcionario_final(list);
+    adicionar_funcionario_final(list);
 
 
     listar_funcionarios(list);
 
 
+    deletar_funcionario(list, 1);
+    deletar_funcionario(list, 3);
+    deletar_funcionario(list, 5);
+
+    listar_funcionarios(list);
+
+
+    deletar_funcionario(list, 2);
+    deletar_funcionario(list, 4);
 
     return 0;
 }
