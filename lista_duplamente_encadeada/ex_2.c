@@ -120,16 +120,6 @@ int main(){
     listar_funcionarios(list);
 
 
-    deletar_funcionario(list, 1);
-    deletar_funcionario(list, 3);
-    deletar_funcionario(list, 5);
-
-    listar_funcionarios(list);
-
-
-    deletar_funcionario(list, 2);
-    deletar_funcionario(list, 4);
-
     return 0;
 }
  
