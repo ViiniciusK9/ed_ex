@@ -73,7 +73,7 @@ void adicionar_funcionario_inicio(List *list){
 void deletar_funcionario(List *list, int id_deletar){
     Funcionario *aux;
     for(aux = list->primeiro; aux != NULL; aux = aux->proximo){
-        if(aux->id == id_deletar){ deletar_funcionario(list, 4);
+        if(aux->id == id_deletar){ 
             if (aux == list->primeiro && aux == list->ultimo){
                 list->primeiro == NULL;
                 list->ultimo == NULL;
