@@ -6,7 +6,8 @@ using namespace std;
 int main(){
     pilha pilha1;
     TipoItem item;
-    int opcao;
+    int opcao, tam;
+    bool resp;
     cout << "Programa gerador de pilhas:\n";
 
     do
@@ -38,7 +39,7 @@ int main(){
             break;
 
         case 4:
-            bool resp = pilha1.estavazia();
+            resp = pilha1.estavazia();
             if (resp){
                 cout << "A pilha esta vazia!\n";
             } else{
@@ -47,7 +48,7 @@ int main(){
             break;
 
         case 5:
-            bool resp = pilha1.estacheia();
+            resp = pilha1.estacheia();
             if (resp){
                 cout << "A pilha esta cheia!\n";
             } else{
@@ -56,7 +57,7 @@ int main(){
             break;
 
         case 6:
-            int tam = pilha1.qualtamanho();
+            tam = pilha1.qualtamanho();
             cout << "A pilha possui " << tam << " elementos!\n";
             break;
 
