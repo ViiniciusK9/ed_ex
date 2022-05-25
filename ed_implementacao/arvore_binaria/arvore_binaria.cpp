@@ -12,12 +12,17 @@ using namespace std;
 
     ArvoreBinaria::~ArvoreBinaria()
     {
-
+        deletarArvore(raiz);
     }
 
     void ArvoreBinaria::deletarArvore(No* Noatual)
     {
+        if(Noatual != NULL){
+            deletarArvore(Noatual->filhoesquerda);
+            deletarArvore(Noatual->filhodireita);
 
+            delete Noatual;
+        }
     }
 
     No* ArvoreBinaria::obterRaiz()
@@ -140,15 +145,34 @@ using namespace std;
 
     void ArvoreBinaria::imprimirpreordem(No* Noatual)
     {
+        if(Noatual != NULL){
+            cout << Noatual->aluno.obterNome() << ": ";
+            cout << Noatual->aluno.obterRa() << '\n';
 
+            imprimirpreordem(Noatual->filhoesquerda);
+            imprimirpreordem(Noatual->filhodireita);
+        }
     }
 
     void ArvoreBinaria::imprimiremordem(No* Noatual)
     {
+        if(Noatual != NULL){
+            imprimiremordem(Noatual->filhoesquerda);
 
+            cout << Noatual->aluno.obterNome() << ": ";
+            cout << Noatual->aluno.obterRa() << '\n';
+            
+            imprimiremordem(Noatual->filhodireita);
+        }
     }
 
     void ArvoreBinaria::imprimirposordem(No* Noatual)
     {
+        if(Noatual != NULL){
+            imprimirposordem(Noatual->filhoesquerda);
+            imprimirposordem(Noatual->filhodireita);
 
+            cout << Noatual->aluno.obterNome() << ": ";
+            cout << Noatual->aluno.obterRa() << '\n';
+        }
     }
